@@ -2,6 +2,8 @@
 (function () {
   'use strict';
 
+  const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxrZ46JYp51NW7f7Gvkr7tYz4nJRq7sq2EiDjld1J8wfomYUuKCr3bOpWv-uNNpwXFP/exec';
+
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
@@ -148,16 +150,23 @@
       if (!validateStep()) return;
 
       const data = Object.fromEntries(new FormData(form).entries());
-      // collect pain checkboxes
       data.pain = $$('input[name="pain"]:checked', form).map((i) => i.value);
+      data.consent = !!form.querySelector('input[name="consent"]:checked');
 
-      try {
-        const all = JSON.parse(localStorage.getItem('liq_signups') || '[]');
-        all.push({ ...data, ts: new Date().toISOString() });
-        localStorage.setItem('liq_signups', JSON.stringify(all));
-      } catch (_) { /* ignore */ }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
 
-      go(totalSteps + 1);
+      fetch(SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data),
+      }).catch(() => { /* no-cors hides errors; request still reaches Apps Script */ })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+          go(totalSteps + 1);
+        });
     });
 
     // initialize
