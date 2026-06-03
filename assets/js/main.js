@@ -121,16 +121,17 @@
       }
     };
 
-    const validateStep = () => {
-      const panel = panels[step - 1];
-      if (!panel) return true;
-      const required = $$('[required]', panel);
-      let ok = true;
-      required.forEach((el) => {
-        if (el.type === 'checkbox' && !el.checked) { ok = false; flash(el); }
-        else if (!el.value) { ok = false; flash(el); }
-      });
-      return ok;
+    const showError = (panel, msg) => {
+      let err = panel.querySelector('.form__error');
+      if (!err) {
+        err = document.createElement('p');
+        err.className = 'form__error';
+        panel.prepend(err);
+      }
+      err.textContent = msg;
+      err.classList.add('is-visible');
+      clearTimeout(err._t);
+      err._t = setTimeout(() => err.classList.remove('is-visible'), 4000);
     };
     const flash = (el) => {
       const host = el.closest('label') || el;
@@ -138,12 +139,57 @@
         [{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }],
         { duration: 280, easing: 'ease-out' },
       );
-      el.style.borderColor = '#ff5b5b';
-      setTimeout(() => { el.style.borderColor = ''; }, 1200);
+      if (el.style) {
+        el.style.borderColor = '#ff5b5b';
+        setTimeout(() => { el.style.borderColor = ''; }, 1500);
+      }
+    };
+    const validateStep = () => {
+      const panel = panels[step - 1];
+      if (!panel) return true;
+      let ok = true;
+      let firstBad = null;
+      const fail = (el) => { ok = false; flash(el); if (!firstBad) firstBad = el; };
+
+      // Required text/select/textarea/checkbox
+      $$('[required]', panel).forEach((el) => {
+        if (el.type === 'radio') return; // handled as a group below
+        if (el.type === 'checkbox') { if (!el.checked) fail(el); }
+        else if (!String(el.value || '').trim()) fail(el);
+      });
+
+      // Required radio groups: if ANY radio in a group is [required], require one to be checked
+      const radios = $$('input[type=radio][required]', panel);
+      const groups = new Set(radios.map((r) => r.name));
+      groups.forEach((name) => {
+        const any = panel.querySelector(`input[type=radio][name="${name}"]:checked`);
+        if (!any) {
+          const group = panel.querySelectorAll(`input[type=radio][name="${name}"]`);
+          group.forEach((r) => flash(r.closest('label') || r));
+          ok = false;
+          if (!firstBad) firstBad = group[0];
+        }
+      });
+
+      if (!ok) {
+        showError(panel, 'Please complete the highlighted fields to continue.');
+        if (firstBad && firstBad.focus) firstBad.focus({ preventScroll: true });
+      }
+      return ok;
     };
 
     nextBtn.addEventListener('click', () => { if (validateStep()) go(step + 1); });
     prevBtn.addEventListener('click', () => go(step - 1));
+
+    // Pressing Enter on a non-final step should advance, not submit
+    form.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      if (e.target.tagName === 'TEXTAREA') return;
+      if (step < totalSteps) {
+        e.preventDefault();
+        if (validateStep()) go(step + 1);
+      }
+    });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();

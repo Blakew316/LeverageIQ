@@ -430,6 +430,15 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .form__nav .btn[disabled]{opacity:.4;pointer-events:none}
 
+.form__error{
+  margin:0 0 14px;padding:10px 14px;border-radius:10px;
+  background:rgba(255,91,91,.08);border:1px solid rgba(255,91,91,.35);
+  color:#ff9d9d;font-size:13.5px;
+  opacity:0;transform:translateY(-4px);transition:opacity .25s var(--ease),transform .25s var(--ease);
+  pointer-events:none;
+}
+.form__error.is-visible{opacity:1;transform:translateY(0)}
+
 .step-panel--done{display:flex;align-items:center;justify-content:center}
 .done{text-align:center;display:grid;justify-items:center;gap:14px;padding:20px 8px}
 .done h3{margin:6px 0 0;font-family:var(--display);font-size:28px;letter-spacing:-0.02em;color:#fff}
