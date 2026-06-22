@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LeverageIQ — chevron stack">
+  <rect width="64" height="64" rx="14" fill="#0b0d10"/>
+  <!-- Three rising chevrons (bottom -> top), brand cyan with stepped opacity -->
+  <g fill="none" stroke="#00AAFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 42 L24 32 L34 42" opacity="0.35"/>
+    <path d="M18 34 L28 24 L38 34" opacity="0.7"/>
+    <path d="M22 26 L32 16 L42 26" opacity="1"/>
+  </g>
+</svg>

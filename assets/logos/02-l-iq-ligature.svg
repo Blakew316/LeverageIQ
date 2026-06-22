@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LeverageIQ — L/IQ ligature">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0d10"/>
+      <stop offset="1" stop-color="#1a1f25"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#g2)"/>
+  <!-- Monoline L -->
+  <path d="M16 12 L16 52 L42 52" fill="none" stroke="#FAFAFA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- IQ tucked into the inside corner -->
+  <g fill="#00AAFF" font-family="'Space Grotesk', Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="-0.5">
+    <text x="24" y="46">IQ</text>
+  </g>
+</svg>
