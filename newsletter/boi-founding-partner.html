@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Business Owner Insider — Founding Partner Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15110B;          /* warm near-black */
+    --ink-2:#1E1810;
+    --char:#221B12;         /* charcoal panel */
+    --cream:#F4EDDD;        /* parchment page */
+    --cream-2:#ECE2CC;
+    --panel:#EBE1CA;        /* tinted card */
+    --gold:#D7A33C;         /* primary accent */
+    --gold-2:#E7C77E;
+    --gold-soft:#F0DFB0;
+    --maroon:#933029;       /* brick red */
+    --maroon-2:#7C2722;
+    --navy:#1C2A38;
+    --text:#2A2118;         /* body on cream */
+    --mute:#7A6E59;
+    --line:rgba(34,27,18,0.12);
+    --line-d:rgba(244,237,221,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0e0b07}
+  body{
+    font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .page{
+    width:8.5in;min-height:11in;margin:0 auto;background:var(--cream);
+    position:relative;overflow:hidden;
+  }
+  .slab{font-family:'Roboto Slab',serif}
+  .cond{font-family:'Oswald',sans-serif}
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    background:
+      radial-gradient(820px 480px at 82% 8%, rgba(215,163,60,.20), transparent 58%),
+      radial-gradient(640px 420px at 8% 100%, rgba(147,48,41,.28), transparent 60%),
+      linear-gradient(160deg,#1B140C 0%, #15110B 60%, #120E08 100%);
+    color:#F4EDDD;padding:0.5in 0.55in 0.46in;position:relative;
+  }
+  .hero::after{ /* hairline gold base */
+    content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+    background:linear-gradient(90deg,var(--maroon),var(--gold),var(--maroon));
+  }
+  .hero__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.34in}
+  .lockup{display:flex;align-items:center;gap:13px}
+  .emblem{width:62px;height:62px;flex-shrink:0}
+  .wordmark{line-height:1}
+  .wordmark .l1{font-family:'Oswald';font-weight:600;letter-spacing:.20em;font-size:13px;color:#F4EDDD}
+  .wordmark .l2{font-family:'Oswald';font-weight:700;letter-spacing:.22em;font-size:18px;color:var(--gold);margin-top:2px}
+  .seal{
+    width:1.0in;height:1.0in;border-radius:50%;flex-shrink:0;
+    background:radial-gradient(circle at 50% 38%, #2A2114, #18120A);
+    border:2px solid var(--gold);
+    display:grid;place-items:center;text-align:center;
+    box-shadow:0 0 0 4px rgba(215,163,60,.12), 0 14px 30px rgba(0,0,0,.4);
+    position:relative;
+  }
+  .seal .stars{position:absolute;top:11px;left:0;right:0;text-align:center;color:var(--gold);font-size:9px;letter-spacing:3px}
+  .seal b{font-family:'Oswald';font-weight:700;color:var(--gold);font-size:21px;letter-spacing:.02em;line-height:.9}
+  .seal small{font-family:'Oswald';display:block;color:#E7C77E;font-size:8px;letter-spacing:.18em;margin-top:3px}
+
+  .hero__grid{display:grid;grid-template-columns:1.12fr 0.88fr;gap:0.4in;align-items:center}
+  .eyebrow{
+    font-family:'Oswald';color:var(--gold);font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;
+    margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+  .hero h1{
+    font-family:'Roboto Slab';font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-0.01em;color:#F7F1E3;
+    margin-bottom:16px;
+  }
+  .hero h1 .accent{color:var(--gold)}
+  .ribbon{
+    display:inline-block;position:relative;
+    background:var(--maroon);color:#F4EDDD;
+    font-family:'Oswald';font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    padding:8px 16px;margin-bottom:16px;
+  }
+  .ribbon::before,.ribbon::after{content:"";position:absolute;top:0;bottom:0;width:8px;background:var(--maroon-2)}
+  .ribbon::before{left:-8px;clip-path:polygon(0 50%,100% 0,100% 100%)}
+  .ribbon::after{right:-8px;clip-path:polygon(0 0,100% 50%,0 100%)}
+  .hero p{color:#D9CFB9;font-size:12.5px;line-height:1.6;max-width:50ch}
+  .hero p + p{margin-top:9px}
+  .hero p strong{color:#F4EDDD;font-weight:600}
+  .hero p .em{color:var(--gold-2)}
+
+  /* newsletter device mock */
+  .mock{
+    background:#FBF6EA;border-radius:10px;padding:15px 15px 13px;color:#221B12;
+    box-shadow:0 24px 48px rgba(0,0,0,.45), 0 0 0 1px rgba(215,163,60,.4);
+    position:relative;
+  }
+  .mock::before{ /* browser dots */
+    content:"";position:absolute;top:-0px;left:0;right:0;height:0;
+  }
+  .mock__mast{text-align:center;border-bottom:2px solid #E4D9BE;padding-bottom:9px;margin-bottom:9px}
+  .mock__mast .m1{font-family:'Roboto Slab';font-weight:700;font-size:13px;letter-spacing:.04em;color:#1E1810}
+  .mock__mast .m2{font-family:'Roboto Slab';font-weight:800;font-size:13px;letter-spacing:.04em;color:var(--gold);margin-top:-1px}
+  .mock__mast .tag{font-size:6.5px;color:#8A7C61;letter-spacing:.04em;margin-top:3px;font-style:italic}
+  .mock__edition{
+    background:#1E1810;color:#E7C77E;font-family:'Oswald';font-size:7px;letter-spacing:.18em;text-transform:uppercase;
+    padding:4px 8px;border-left:3px solid var(--gold);margin-bottom:9px;font-weight:600;
+  }
+  .mock__title{font-family:'Roboto Slab';font-weight:700;font-size:12.5px;line-height:1.15;color:#1E1810;margin-bottom:5px}
+  .mock__lede{font-size:7.5px;line-height:1.5;color:#5A4F3D;margin-bottom:8px}
+  .mock__img{height:42px;border-radius:5px;margin-bottom:9px;
+    background:linear-gradient(120deg,#caa86a,#8a6f44);position:relative;overflow:hidden}
+  .mock__img::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(40px 40px at 70% 30%, rgba(255,255,255,.25), transparent)}
+  .mock__cta{display:inline-block;background:var(--maroon);color:#F4EDDD;font-family:'Oswald';
+    padding:4px 9px;border-radius:3px;font-size:7px;font-weight:600;letter-spacing:.10em;text-transform:uppercase}
+  .mock__more{margin-top:9px;border-top:1px solid #E4D9BE;padding-top:7px}
+  .mock__more .h{font-family:'Oswald';font-size:6.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A7C61;font-weight:600}
+  .mock__more .t{font-size:8px;color:#3A3024;font-weight:600;margin-top:2px}
+
+  /* ---------------- METRIC STRIP ---------------- */
+  .metrics{display:grid;grid-template-columns:repeat(5,1fr);background:#FBF6EA;padding:0.28in 0.5in;border-bottom:1px solid var(--line)}
+  .metric{text-align:center;padding:0 7px;position:relative}
+  .metric + .metric::before{content:"";position:absolute;left:0;top:16%;bottom:16%;width:1px;background:var(--line)}
+  .metric .icon{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;margin:0 auto 8px;border:1px solid rgba(215,163,60,.4)}
+  .metric .icon svg{width:15px;height:15px}
+  .metric .num{font-family:'Roboto Slab';font-weight:800;font-size:20px;letter-spacing:-0.01em;color:var(--maroon);line-height:1}
+  .metric .num.sm{font-family:'Oswald';font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  .metric .label{font-family:'Oswald';font-weight:600;font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;color:#3A3024;margin-top:6px}
+  .metric .desc{font-size:8.5px;color:var(--mute);margin-top:3px;line-height:1.4}
+
+  /* ---------------- BODY ---------------- */
+  .body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.16in;padding:0.28in 0.5in 0.26in;background:var(--cream)}
+  .col{display:flex;flex-direction:column;gap:0.16in}
+  .seclabel{font-family:'Oswald';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--maroon);font-weight:700;display:flex;align-items:center;gap:9px;margin-bottom:2px}
+  .seclabel .chip{width:18px;height:18px;border-radius:5px;background:var(--ink);color:var(--gold);display:grid;place-items:center;flex-shrink:0}
+  .seclabel .chip svg{width:11px;height:11px}
+
+  .card{background:#FBF6EA;border:1px solid var(--line);border-radius:12px;padding:0.2in}
+  .card.tint{background:var(--panel);border-color:transparent}
+  .card.dark{background:var(--ink);color:#EFE6D2;border-color:transparent}
+  .card h3{font-family:'Oswald';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--maroon);font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:8px}
+  .card.dark h3{color:var(--gold)}
+  .card .lead{font-family:'Roboto Slab';font-weight:600;font-size:11.5px;color:var(--ink);margin-bottom:6px;line-height:1.3}
+  .card.dark .lead{color:#F4EDDD}
+  .card p{font-size:10px;line-height:1.55;color:#4A3F2E}
+  .card.dark p{color:#CBBEA2}
+  .chip-sm{width:16px;height:16px;border-radius:4px;background:var(--gold);color:#231A08;display:grid;place-items:center;flex-shrink:0}
+  .chip-sm svg{width:10px;height:10px}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;list-style:none;margin-top:6px}
+  .twocol li{position:relative;padding-left:15px;font-size:9.5px;color:var(--text)}
+  .twocol li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--maroon)}
+
+  /* sponsor tiers */
+  .tiers-label{font-family:'Oswald';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--maroon);font-weight:700;display:flex;align-items:center;gap:9px}
+  .sponsor{background:var(--ink);color:#EFE6D2;border-radius:12px;padding:0.2in;position:relative;overflow:hidden}
+  .sponsor.lead{border:1.5px solid var(--gold)}
+  .sponsor.feat{border:1px solid rgba(215,163,60,.3)}
+  .sponsor .head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:9px}
+  .sponsor .tag{font-family:'Oswald';font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .sponsor .tagsub{font-size:8px;color:#9A8E73;margin-top:1px}
+  .sponsor .price{text-align:right;line-height:1}
+  .sponsor .price b{font-family:'Roboto Slab';font-weight:800;font-size:25px;color:var(--gold);display:block;letter-spacing:-0.01em}
+  .sponsor .price small{font-family:'Oswald';font-size:7.5px;color:#9A8E73;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+  .sponsor ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin-top:4px}
+  .sponsor.feat ul{grid-template-columns:1fr 1fr}
+  .sponsor li{position:relative;padding-left:14px;font-size:9px;color:#D9CEB4}
+  .sponsor li::before{content:"";position:absolute;left:0;top:4px;width:7px;height:7px;border-radius:2px;background:var(--gold)}
+
+  /* placement preview */
+  .preview{background:#FBF6EA;border:1px solid var(--line);border-radius:12px;padding:0.2in}
+  .preview .sk{height:7px;background:#E7DCC2;border-radius:4px;margin-bottom:5px}
+  .preview .ad{background:#fff;border:1.5px solid var(--gold);border-radius:9px;padding:9px;display:flex;gap:9px;margin:9px 0;box-shadow:0 8px 18px -10px rgba(147,48,41,.35)}
+  .preview .ad .logo{width:44px;height:44px;border-radius:7px;background:var(--panel);border:1px dashed #B6A87F;display:grid;place-items:center;color:#8A7C61;font-size:7px;text-align:center;line-height:1.2;font-family:'Oswald';letter-spacing:.06em;flex-shrink:0}
+  .preview .ad h4{font-family:'Oswald';font-size:8px;color:var(--maroon);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+  .preview .ad h5{font-family:'Roboto Slab';font-size:11px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.15}
+  .preview .ad p{font-size:8.5px;color:#5A4F3D;line-height:1.4}
+  .preview .ad .c{display:inline-block;background:var(--maroon);color:#F4EDDD;font-family:'Oswald';padding:3px 8px;border-radius:3px;font-size:7px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
+
+  .cats{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;list-style:none;margin-top:6px}
+  .cats li{position:relative;padding-left:15px;font-size:9.5px;color:var(--text)}
+  .cats li::before{content:"✓";position:absolute;left:0;top:-1px;color:var(--gold);font-size:9px;font-weight:700}
+
+  /* ---------------- FOOTER ---------------- */
+  .foot{background:linear-gradient(160deg,#1B140C,#120E08);color:#F4EDDD;padding:0.3in 0.55in;display:grid;grid-template-columns:1.4fr 1fr;gap:0.3in;align-items:center;position:relative}
+  .foot::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--maroon),var(--gold),var(--maroon))}
+  .foot__cta h2{font-family:'Roboto Slab';font-weight:800;font-size:21px;letter-spacing:-0.01em;line-height:1.08;margin-bottom:6px}
+  .foot__cta h2 .accent{color:var(--gold)}
+  .foot__cta p{color:#B6A988;font-size:10.5px;line-height:1.5;max-width:42ch}
+  .foot__cta .star{color:var(--gold)}
+  .foot__contact{display:flex;align-items:center;gap:13px;justify-content:flex-end;text-align:right}
+  .foot__contact .who{font-size:10.5px;color:#B6A988}
+  .foot__contact .who b{display:block;color:#F4EDDD;font-weight:600;font-family:'Oswald';letter-spacing:.04em;font-size:12px;margin-top:1px}
+  .foot__contact .num{font-family:'Roboto Slab';font-weight:800;font-size:21px;color:var(--gold);letter-spacing:-0.01em;line-height:1.15;margin-top:3px}
+  .foot__contact .ring{width:46px;height:46px;border-radius:50%;background:var(--gold);color:#1B140C;display:grid;place-items:center;flex-shrink:0;box-shadow:0 0 0 4px rgba(215,163,60,.15)}
+  .foot__contact .ring svg{width:21px;height:21px}
+
+  @page{size:Letter;margin:0}
+  @media print{html,body{background:var(--cream)} .page{width:8.5in;min-height:11in}}
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero__top">
+        <div class="lockup">
+          <!-- recreated Business Owner Insider emblem -->
+          <svg class="emblem" viewBox="0 0 120 120" aria-label="Business Owner Insider emblem">
+            <defs>
+              <path id="arcTop" d="M16,60 A44,44 0 0 1 104,60" />
+            </defs>
+            <circle cx="60" cy="60" r="58" fill="#16110A"/>
+            <circle cx="60" cy="60" r="58" fill="none" stroke="#D7A33C" stroke-width="2.5"/>
+            <circle cx="60" cy="60" r="49" fill="#0F1A26"/>
+            <circle cx="60" cy="60" r="49" fill="none" stroke="#5A4322" stroke-width="1"/>
+            <!-- arced top text -->
+            <text font-family="Oswald, sans-serif" font-weight="700" font-size="10.5" letter-spacing="1.6" fill="#D7A33C">
+              <textPath href="#arcTop" startOffset="50%" text-anchor="middle">BUSINESS · OWNER</textPath>
+            </text>
+            <!-- city skyline -->
+            <g fill="#2A4866">
+              <rect x="34" y="52" width="7" height="22"/><rect x="43" y="45" width="8" height="29"/>
+              <rect x="53" y="40" width="9" height="34"/><rect x="64" y="47" width="8" height="27"/>
+              <rect x="74" y="52" width="7" height="22"/>
+            </g>
+            <g fill="#3A6E9E" opacity="0.9">
+              <rect x="55" y="44" width="2" height="2"/><rect x="59" y="48" width="2" height="2"/>
+              <rect x="46" y="50" width="2" height="2"/><rect x="67" y="52" width="2" height="2"/>
+            </g>
+            <!-- market stall awning -->
+            <g>
+              <rect x="44" y="60" width="32" height="3.4" fill="#8C2C25"/>
+              <g>
+                <rect x="44" y="60" width="5.3" height="3.4" fill="#933029"/>
+                <rect x="49.3" y="60" width="5.3" height="3.4" fill="#F0E6CE"/>
+                <rect x="54.6" y="60" width="5.3" height="3.4" fill="#933029"/>
+                <rect x="59.9" y="60" width="5.3" height="3.4" fill="#F0E6CE"/>
+                <rect x="65.2" y="60" width="5.3" height="3.4" fill="#933029"/>
+                <rect x="70.5" y="60" width="5.5" height="3.4" fill="#F0E6CE"/>
+              </g>
+              <path d="M44 63.4 l4 4 h24 l4 -4 Z" fill="#7C2722" opacity="0.55"/>
+            </g>
+            <!-- lightbulb -->
+            <circle cx="60" cy="34" r="6.4" fill="#F2C75A"/>
+            <circle cx="60" cy="34" r="6.4" fill="none" stroke="#D7A33C" stroke-width="1"/>
+            <rect x="57.4" y="40" width="5.2" height="3" rx="1" fill="#C9A24A"/>
+            <g stroke="#E7C77E" stroke-width="1" opacity="0.8">
+              <line x1="60" y1="23" x2="60" y2="26"/><line x1="50" y1="27" x2="52" y2="29"/><line x1="70" y1="27" x2="68" y2="29"/>
+            </g>
+            <!-- INSIDER ribbon -->
+            <g>
+              <rect x="30" y="76" width="60" height="13" rx="1.5" fill="#933029"/>
+              <path d="M30 76 l-6 6 6 6 Z" fill="#6E211C"/>
+              <path d="M90 76 l6 6 -6 6 Z" fill="#6E211C"/>
+              <text x="60" y="85.4" font-family="Oswald, sans-serif" font-weight="700" font-size="9.5" letter-spacing="2.4" fill="#F4EDDD" text-anchor="middle">INSIDER</text>
+            </g>
+            <!-- bottom stars -->
+            <text x="60" y="103" font-size="7" fill="#D7A33C" text-anchor="middle" letter-spacing="3">★ ★ ★</text>
+          </svg>
+          <div class="wordmark">
+            <div class="l1">Business Owner</div>
+            <div class="l2">INSIDER</div>
+          </div>
+        </div>
+        <div class="seal">
+          <span class="stars">★ ★ ★</span>
+          <div><b>ONLY 2</b><small>Sponsors / Issue</small></div>
+        </div>
+      </div>
+
+      <div class="hero__grid">
+        <div>
+          <p class="eyebrow">The professional home for business owners</p>
+          <h1>Invitation to Become a <span class="accent">Founding Partner</span></h1>
+          <span class="ribbon">July 2026 · Sponsorship Opportunities</span>
+          <p><strong>Business Owner Insider</strong> is a weekly publication built exclusively for business owners — delivering practical ideas and actionable strategies that help them grow, protect, and run stronger businesses.</p>
+          <p class="em">We're not building another newsletter.</p>
+          <p>We're building the most trusted place in the world for business owners to find answers — and we're looking for partners who want to help build it.</p>
+        </div>
+
+        <div class="mock" aria-hidden="true">
+          <div class="mock__mast">
+            <div class="m1">BUSINESS OWNER</div>
+            <div class="m2">INSIDER</div>
+            <div class="tag">Practical Ideas. Smarter Decisions. Stronger Businesses.</div>
+          </div>
+          <div class="mock__edition">This Week's Edition</div>
+          <div class="mock__title">5 Ways Business Owners Can Improve Cash Flow This Quarter</div>
+          <div class="mock__lede">Cash flow is the lifeblood of every business. Here are five practical strategies you can implement right now to strengthen your position and fuel growth.</div>
+          <div class="mock__img"></div>
+          <span class="mock__cta">Read More →</span>
+          <div class="mock__more">
+            <div class="h">More in this issue</div>
+            <div class="t">How to Build a Team That Drives Results</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== METRICS ===== -->
+    <section class="metrics">
+      <div class="metric">
+        <div class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2.4"/><circle cx="11.4" cy="7" r="1.9"/><path d="M2 13c0-2 2-3.4 4-3.4s4 1.4 4 3.4"/><path d="M9 13c0-1.6 1.4-2.7 3-2.7s3 1.1 3 2.7"/></svg></div>
+        <div class="num">45,000+</div>
+        <div class="label">Business Owners</div>
+        <div class="desc">A growing community of decision makers across the U.S.</div>
+      </div>
+      <div class="metric">
+        <div class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 6 H14"/><path d="M5 1 V4 M11 1 V4"/></svg></div>
+        <div class="num sm">Weekly</div>
+        <div class="label">Publication</div>
+        <div class="desc">Delivered every week with valuable insights and timely strategies.</div>
+      </div>
+      <div class="metric">
+        <div class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5 L13 4 V8c0 3-2.5 5.5-5 6.5C5.5 13.5 3 11 3 8V4z"/><path d="M6 8 L7.4 9.4 L10.5 6.4"/></svg></div>
+        <div class="num sm">Only 2</div>
+        <div class="label">Sponsors / Issue</div>
+        <div class="desc">We limit sponsorships to protect the reader experience.</div>
+      </div>
+      <div class="metric">
+        <div class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11 L4.5 8.5 L6.5 10 L11 5"/><path d="M4 11 H1 V14"/><path d="M11 11 H15 V14"/></svg></div>
+        <div class="num sm">Exclusive</div>
+        <div class="label">Category Protection</div>
+        <div class="desc">You'll be the only company in your category that week.</div>
+      </div>
+      <div class="metric">
+        <div class="icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="3"/><circle cx="8" cy="8" r="0.8" fill="currentColor"/></svg></div>
+        <div class="num">100%</div>
+        <div class="label">Business Owner Audience</div>
+        <div class="desc">Every subscriber owns or operates a business.</div>
+      </div>
+    </section>
+
+    <!-- ===== BODY ===== -->
+    <section class="body">
+      <!-- COL 1 -->
+      <div class="col">
+        <article class="card">
+          <h3><span class="chip-sm"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="3.4" cy="3.6" r="1.6"/><path d="M0.6 9c0-1.5 1.2-2.6 2.8-2.6S6.2 7.5 6.2 9"/></svg></span> Our Audience</h3>
+          <p class="lead">Business owners. Decision makers. Results driven.</p>
+          <ul class="twocol">
+            <li>Entrepreneurs</li><li>Construction</li>
+            <li>Founders</li><li>Professional Services</li>
+            <li>CEOs / Presidents</li><li>Manufacturing</li>
+            <li>Operators</li><li>Hospitality</li>
+            <li>Service Companies</li><li>Retail</li>
+            <li>Healthcare</li><li>…and more</li>
+          </ul>
+        </article>
+
+        <article class="card tint">
+          <h3><span class="chip-sm"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 0.8 L6.1 3.6 L9 3.8 L6.8 5.7 L7.4 8.6 L5 7 L2.6 8.6 L3.2 5.7 L1 3.8 L3.9 3.6 Z"/></svg></span> Why They Read</h3>
+          <p>They are constantly looking for solutions that help them save money, grow revenue, hire better, operate more efficiently, reduce risk, and make smarter decisions.</p>
+          <p class="lead" style="margin-top:9px">Your company becomes part of that conversation.</p>
+          <p style="margin-top:3px;color:var(--mute)">Not by interrupting. By providing value.</p>
+        </article>
+
+        <article class="card dark">
+          <h3><span class="chip-sm"><svg viewBox="0 0 10 10" fill="none" stroke="#231A08" stroke-width="1.3"><rect x="2.6" y="4.4" width="4.8" height="4.2" rx="0.6"/><path d="M3.6 4.4 V3.2 a1.4 1.4 0 0 1 2.8 0 V4.4"/></svg></span> Trust Compounds</h3>
+          <p>We are building an institution that will exist for decades. Our readers trust us — and that trust is more valuable than additional advertising revenue. That's why we are selective about who we partner with, and why we limit sponsorships.</p>
+        </article>
+      </div>
+
+      <!-- COL 2 -->
+      <div class="col">
+        <p class="tiers-label"><span class="chip"><svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1.4 1.4 H9.6 V6 L5.5 9.4 L1.4 6 Z"/></svg></span> Sponsorship Opportunities</p>
+
+        <article class="sponsor lead">
+          <div class="head">
+            <div><div class="tag">Lead Sponsor</div><div class="tagsub">Top of newsletter · maximum visibility</div></div>
+            <div class="price"><b>$3,500</b><small>per issue</small></div>
+          </div>
+          <ul>
+            <li>Top placement in newsletter</li>
+            <li>Native recommendation</li>
+            <li>Company logo</li>
+            <li>150–250 word story</li>
+            <li>Direct call-to-action</li>
+            <li>Website link</li>
+            <li>Social media mention</li>
+            <li>Exclusive category protection</li>
+          </ul>
+        </article>
+
+        <article class="sponsor feat">
+          <div class="head">
+            <div><div class="tag">Featured Sponsor</div><div class="tagsub">Mid-newsletter placement</div></div>
+            <div class="price"><b>$2,000</b><small>per issue</small></div>
+          </div>
+          <ul>
+            <li>Mid-newsletter placement</li>
+            <li>Native recommendation</li>
+            <li>Company logo</li>
+            <li>100–150 word feature</li>
+            <li>Website link</li>
+            <li>Exclusive category protection</li>
+          </ul>
+        </article>
+
+        <article class="card tint">
+          <h3><span class="chip-sm"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 5 L4 8 L9 1.6"/></svg></span> A Partnership, Not an Ad</h3>
+          <p>Your company is introduced as a trusted resource — recommended to owners who are actively looking for solutions. You don't interrupt the reader. You become the answer they were searching for.</p>
+        </article>
+      </div>
+
+      <!-- COL 3 -->
+      <div class="col">
+        <article class="preview">
+          <p class="seclabel"><span class="chip"><svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.5" cy="5.5" r="3.4"/><path d="M5.5 3.2 V5.5 L7.2 6.6"/></svg></span> Where You'll Appear</p>
+          <p style="font-family:'Oswald';font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:4px 0 8px">Example sponsor placement</p>
+          <div class="sk" style="width:55%"></div>
+          <div class="sk"></div>
+          <div class="sk" style="width:82%"></div>
+          <div class="ad">
+            <div class="logo">YOUR<br/>LOGO</div>
+            <div>
+              <h4>Sponsored by Your Company</h4>
+              <h5>Your Headline Goes Here</h5>
+              <p>This is your opportunity to share how your solution helps business owners solve real problems and achieve better results.</p>
+              <span class="c">Learn More →</span>
+            </div>
+          </div>
+          <div class="sk" style="width:90%"></div>
+          <div class="sk" style="width:68%"></div>
+        </article>
+
+        <article class="card">
+          <h3><span class="chip-sm"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 4 L4 7 L9 1.4"/></svg></span> Ideal Partner Categories</h3>
+          <ul class="cats">
+            <li>Accounting</li><li>Cybersecurity</li>
+            <li>Payroll</li><li>Phone Systems</li>
+            <li>HR</li><li>Merchant Services</li>
+            <li>CRM</li><li>Recruiting</li>
+            <li>Business Banking</li><li>Business Coaching</li>
+            <li>Insurance</li><li>SaaS</li>
+            <li>Commercial Lending</li><li>Shipping</li>
+            <li>Legal</li><li>Fleet Management</li>
+            <li>Marketing</li><li>Tax Strategy</li>
+            <li>AI Software</li><li>…and more</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <section class="foot">
+      <div class="foot__cta">
+        <h2><span class="star">★</span> July Sponsorships Are <span class="accent">Limited.</span></h2>
+        <p>Once a category is filled, it remains exclusive for that issue. Reserve your Founding Partner spot today and help build the future together.</p>
+      </div>
+      <div class="foot__contact">
+        <div>
+          <div class="who">Call or text <b>Cody Malone</b></div>
+          <div class="num">806 · 300 · 5599</div>
+        </div>
+        <div class="ring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
